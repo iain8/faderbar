@@ -12,6 +12,7 @@
 		AEAE7E431DF33A5900B0774E /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEAE7E411DF33A5900B0774E /* MainMenu.xib */; };
 		AEAE7E4E1DF33A5900B0774E /* FaderBarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEAE7E4D1DF33A5900B0774E /* FaderBarTests.swift */; };
 		AEAE7E591DF33A5900B0774E /* FaderBarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEAE7E581DF33A5900B0774E /* FaderBarUITests.swift */; };
+		AEAE7E671DF42BCB00B0774E /* StatusMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEAE7E661DF42BCB00B0774E /* StatusMenuController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,7 @@
 		AEAE7E541DF33A5900B0774E /* FaderBarUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FaderBarUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEAE7E581DF33A5900B0774E /* FaderBarUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaderBarUITests.swift; sourceTree = "<group>"; };
 		AEAE7E5A1DF33A5900B0774E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AEAE7E661DF42BCB00B0774E /* StatusMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusMenuController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 				AEAE7E3F1DF33A5900B0774E /* Assets.xcassets */,
 				AEAE7E411DF33A5900B0774E /* MainMenu.xib */,
 				AEAE7E441DF33A5900B0774E /* Info.plist */,
+				AEAE7E661DF42BCB00B0774E /* StatusMenuController.swift */,
 			);
 			path = FaderBar;
 			sourceTree = "<group>";
@@ -252,6 +255,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEAE7E671DF42BCB00B0774E /* StatusMenuController.swift in Sources */,
 				AEAE7E3E1DF33A5900B0774E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

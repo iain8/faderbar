@@ -12,18 +12,19 @@
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="FaderBar" customModuleProvider="target">
+        <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="FaderBar" customModuleProvider="target"/>
+        <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
+        <customObject id="qBY-Aa-3pn" customClass="StatusMenuController" customModule="FaderBar" customModuleProvider="target">
             <connections>
-                <outlet property="statusMenu" destination="6Jm-BO-0dg" id="von-7e-KOE"/>
+                <outlet property="statusMenu" destination="6Jm-BO-0dg" id="BVd-FJ-5z8"/>
             </connections>
         </customObject>
-        <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
         <menu id="6Jm-BO-0dg">
             <items>
                 <menuItem title="Quit" id="ipU-0Y-F2n">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
-                        <action selector="quitClicked:" target="Voe-Tx-rLC" id="0Nz-wt-Gek"/>
+                        <action selector="quitClicked:" target="qBY-Aa-3pn" id="Zqp-j4-4un"/>
                     </connections>
                 </menuItem>
             </items>
