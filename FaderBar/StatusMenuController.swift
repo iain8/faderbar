@@ -18,9 +18,10 @@ class StatusMenuController: NSObject {
     
     override func awakeFromNib() {
         statusItem.menu = statusMenu;
-        statusItem.title = "FaderBar";
         
-        // TODO: icon
+        let icon = #imageLiteral(resourceName: "statusIcon");
+        icon.isTemplate = false;
+        statusItem.image = icon;
     }
     
     @IBAction func startClicked(_ sender: Any) {
