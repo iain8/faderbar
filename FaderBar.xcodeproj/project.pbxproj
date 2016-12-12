@@ -7,12 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE8D0FD71DF600BA00CCC45E /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE8D0FD61DF600BA00CCC45E /* CoreAudio.framework */; };
+		AE8D0FDB1DF601EA00CCC45E /* ISSoundAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8D0FDA1DF601EA00CCC45E /* ISSoundAdditions.m */; };
 		AEAE7E3E1DF33A5900B0774E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEAE7E3D1DF33A5900B0774E /* AppDelegate.swift */; };
 		AEAE7E401DF33A5900B0774E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEAE7E3F1DF33A5900B0774E /* Assets.xcassets */; };
 		AEAE7E431DF33A5900B0774E /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEAE7E411DF33A5900B0774E /* MainMenu.xib */; };
 		AEAE7E4E1DF33A5900B0774E /* FaderBarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEAE7E4D1DF33A5900B0774E /* FaderBarTests.swift */; };
 		AEAE7E591DF33A5900B0774E /* FaderBarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEAE7E581DF33A5900B0774E /* FaderBarUITests.swift */; };
 		AEAE7E671DF42BCB00B0774E /* StatusMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEAE7E661DF42BCB00B0774E /* StatusMenuController.swift */; };
+		AEAE7E6B1DF432E800B0774E /* VolumeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEAE7E6A1DF432E800B0774E /* VolumeControl.swift */; };
+		AEAE7E6C1DF432E800B0774E /* VolumeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEAE7E6A1DF432E800B0774E /* VolumeControl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +37,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AE8D0FD61DF600BA00CCC45E /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		AE8D0FD81DF601E900CCC45E /* FaderBar-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FaderBar-Bridging-Header.h"; sourceTree = "<group>"; };
+		AE8D0FD91DF601EA00CCC45E /* ISSoundAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ISSoundAdditions.h; path = "../../../Downloads/ISSoundAdditions-master/ISSoundAdditions.h"; sourceTree = "<group>"; };
+		AE8D0FDA1DF601EA00CCC45E /* ISSoundAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ISSoundAdditions.m; path = "../../../Downloads/ISSoundAdditions-master/ISSoundAdditions.m"; sourceTree = "<group>"; };
 		AEAE7E3A1DF33A5900B0774E /* FaderBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FaderBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEAE7E3D1DF33A5900B0774E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AEAE7E3F1DF33A5900B0774E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -45,6 +53,7 @@
 		AEAE7E581DF33A5900B0774E /* FaderBarUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaderBarUITests.swift; sourceTree = "<group>"; };
 		AEAE7E5A1DF33A5900B0774E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AEAE7E661DF42BCB00B0774E /* StatusMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusMenuController.swift; sourceTree = "<group>"; };
+		AEAE7E6A1DF432E800B0774E /* VolumeControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VolumeControl.swift; path = ../VolumeControl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE8D0FD71DF600BA00CCC45E /* CoreAudio.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +82,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AE8D0FD51DF600BA00CCC45E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AE8D0FD61DF600BA00CCC45E /* CoreAudio.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		AEAE7E311DF33A5900B0774E = {
 			isa = PBXGroup;
 			children = (
@@ -79,6 +97,7 @@
 				AEAE7E4C1DF33A5900B0774E /* FaderBarTests */,
 				AEAE7E571DF33A5900B0774E /* FaderBarUITests */,
 				AEAE7E3B1DF33A5900B0774E /* Products */,
+				AE8D0FD51DF600BA00CCC45E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -95,11 +114,15 @@
 		AEAE7E3C1DF33A5900B0774E /* FaderBar */ = {
 			isa = PBXGroup;
 			children = (
+				AEAE7E6A1DF432E800B0774E /* VolumeControl.swift */,
+				AE8D0FD91DF601EA00CCC45E /* ISSoundAdditions.h */,
+				AE8D0FDA1DF601EA00CCC45E /* ISSoundAdditions.m */,
 				AEAE7E3D1DF33A5900B0774E /* AppDelegate.swift */,
 				AEAE7E3F1DF33A5900B0774E /* Assets.xcassets */,
 				AEAE7E411DF33A5900B0774E /* MainMenu.xib */,
 				AEAE7E441DF33A5900B0774E /* Info.plist */,
 				AEAE7E661DF42BCB00B0774E /* StatusMenuController.swift */,
+				AE8D0FD81DF601E900CCC45E /* FaderBar-Bridging-Header.h */,
 			);
 			path = FaderBar;
 			sourceTree = "<group>";
@@ -190,6 +213,7 @@
 				TargetAttributes = {
 					AEAE7E391DF33A5900B0774E = {
 						CreatedOnToolsVersion = 8.1;
+						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
 					AEAE7E481DF33A5900B0774E = {
@@ -256,7 +280,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				AEAE7E671DF42BCB00B0774E /* StatusMenuController.swift in Sources */,
+				AE8D0FDB1DF601EA00CCC45E /* ISSoundAdditions.m in Sources */,
 				AEAE7E3E1DF33A5900B0774E /* AppDelegate.swift in Sources */,
+				AEAE7E6B1DF432E800B0774E /* VolumeControl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,6 +291,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AEAE7E4E1DF33A5900B0774E /* FaderBarTests.swift in Sources */,
+				AEAE7E6C1DF432E800B0774E /* VolumeControl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,11 +424,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = FaderBar/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = iain8.FaderBar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "FaderBar/FaderBar-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -410,11 +440,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = FaderBar/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = iain8.FaderBar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "FaderBar/FaderBar-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -496,6 +528,7 @@
 				AEAE7E5F1DF33A5900B0774E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AEAE7E601DF33A5900B0774E /* Build configuration list for PBXNativeTarget "FaderBarTests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +537,7 @@
 				AEAE7E621DF33A5900B0774E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AEAE7E631DF33A5900B0774E /* Build configuration list for PBXNativeTarget "FaderBarUITests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +546,7 @@
 				AEAE7E651DF33A5900B0774E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

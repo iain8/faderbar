@@ -16,11 +16,19 @@
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
         <customObject id="qBY-Aa-3pn" customClass="StatusMenuController" customModule="FaderBar" customModuleProvider="target">
             <connections>
+                <outlet property="actionButton" destination="rBD-QR-Km0" id="KnQ-y9-i1B"/>
                 <outlet property="statusMenu" destination="6Jm-BO-0dg" id="BVd-FJ-5z8"/>
             </connections>
         </customObject>
         <menu id="6Jm-BO-0dg">
             <items>
+                <menuItem title="Start" id="rBD-QR-Km0">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="startClicked:" target="qBY-Aa-3pn" id="w6x-JY-ElR"/>
+                    </connections>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="Pg1-Oc-olL"/>
                 <menuItem title="Quit" id="ipU-0Y-F2n">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
