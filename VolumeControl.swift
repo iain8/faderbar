@@ -9,17 +9,20 @@
 import Foundation
 
 class VolumeControl {
+    /// Time (in seconds) between volume changes
+    let interval: UInt;
+    
     /// Timer used for scheduling
     var timer: Timer;
     
     /// Initial volume when schedule started
     var initialVolume: Double;
     
-    /// Time (in seconds) between volume changes
-    var interval: UInt;
-    
     /// Amount to change volume;
     var delta: Double;
+    
+    /// Length of fade (in seconds)
+    var fadeLength: Double;
     
     /**
      
@@ -33,6 +36,7 @@ class VolumeControl {
         self.initialVolume = 0.0;
         self.interval = 30;
         self.delta = 0.0;
+        self.fadeLength = 1800.0;
     }
     
     /**
@@ -81,9 +85,10 @@ class VolumeControl {
     func startShrinkage() -> Void {
         self.timer.invalidate();
         
-        initialVolume = Double(NSSound.systemVolume());
+        self.initialVolume = Double(NSSound.systemVolume());
         
-        delta = initialVolume / Double(interval);
+        // calculate change per interval from number of times timer is called
+        self.delta = self.initialVolume / (self.fadeLength / Double(self.interval));
         
         self.timer = Timer.scheduledTimer(timeInterval: 30, target: self, selector: #selector(self.changeVolume), userInfo: nil, repeats: true);
     }
@@ -97,5 +102,7 @@ class VolumeControl {
         self.timer.invalidate();
         
         NSSound.setSystemVolume(Float(initialVolume));
+        
+        self.showNotification(message: "Timer cancelled, volume reset")
     }
 }
