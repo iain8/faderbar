@@ -10,33 +10,39 @@ import Cocoa
 
 class StatusMenuController: NSObject {
     @IBOutlet weak var statusMenu: NSMenu!
-    @IBOutlet weak var actionButton: NSMenuItem!;
+    @IBOutlet weak var actionButton: NSMenuItem!
     
-    let statusItem = NSStatusBar.system().statusItem(withLength: NSVariableStatusItemLength);
-    let volumeControl = VolumeControl();
+    let statusItem = NSStatusBar.system().statusItem(withLength: NSVariableStatusItemLength)
+    let volumeControl = VolumeControl()
     
+    var preferencesWindow: PreferencesWindow!
     
     override func awakeFromNib() {
-        statusItem.menu = statusMenu;
+        statusItem.menu = statusMenu
         
-        let icon = #imageLiteral(resourceName: "statusIcon");
-        icon.isTemplate = false;
-        statusItem.image = icon;
+        let icon = #imageLiteral(resourceName: "statusIcon")
+        icon.isTemplate = false
+        statusItem.image = icon
+        
+        preferencesWindow = PreferencesWindow()
     }
     
     @IBAction func startClicked(_ sender: Any) {
         if (actionButton.title == "Start") {
-            actionButton.setTitleWithMnemonic("Stop");
+            actionButton.setTitleWithMnemonic("Stop")
             
-            volumeControl.startShrinkage();
+            volumeControl.startShrinkage()
         } else {
-            actionButton.setTitleWithMnemonic("Start");
+            actionButton.setTitleWithMnemonic("Start")
             
-            volumeControl.cancelShrinkage();
+            volumeControl.cancelShrinkage()
         }
+    }
+    @IBAction func preferencesClicked(_ sender: Any) {
+        preferencesWindow.showWindow(nil);
     }
     
     @IBAction func quitClicked(_ sender: Any) {
-        NSApplication.shared().terminate(self);
+        NSApplication.shared().terminate(self)
     }
 }

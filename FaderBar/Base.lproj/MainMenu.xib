@@ -28,6 +28,13 @@
                         <action selector="startClicked:" target="qBY-Aa-3pn" id="w6x-JY-ElR"/>
                     </connections>
                 </menuItem>
+                <menuItem isSeparatorItem="YES" id="5Cc-C5-H4F"/>
+                <menuItem title="Preferences..." id="9hw-D9-npt">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="preferencesClicked:" target="qBY-Aa-3pn" id="zLa-QU-JiM"/>
+                    </connections>
+                </menuItem>
                 <menuItem isSeparatorItem="YES" id="Pg1-Oc-olL"/>
                 <menuItem title="Quit" id="ipU-0Y-F2n">
                     <modifierMask key="keyEquivalentModifierMask"/>
