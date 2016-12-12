@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class StatusMenuController: NSObject {
+class StatusMenuController: NSObject, PreferencesWindowDelegate {
     @IBOutlet weak var statusMenu: NSMenu!
     @IBOutlet weak var actionButton: NSMenuItem!
     
@@ -25,6 +25,7 @@ class StatusMenuController: NSObject {
         statusItem.image = icon
         
         preferencesWindow = PreferencesWindow()
+        preferencesWindow.delegate = self
     }
     
     @IBAction func startClicked(_ sender: Any) {
@@ -44,5 +45,14 @@ class StatusMenuController: NSObject {
     
     @IBAction func quitClicked(_ sender: Any) {
         NSApplication.shared().terminate(self)
+    }
+    
+    func preferencesDidUpdate() {
+        let fadeTime = UserDefaults.standard.string(forKey: "fadeTime");
+        
+        let newFadeTime = NumberFormatter().number(from: fadeTime!)?.doubleValue
+        
+        // WHY IS THIS FAIL
+        volumeControl.fadeLength = newFadeTime! * 60.0
     }
 }

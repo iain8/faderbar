@@ -8,6 +8,8 @@
 
 import Foundation
 
+let DEFAULT_FADELENGTH = 1800.00
+
 class VolumeControl {
     /// Time (in seconds) between volume changes
     let interval: UInt;
@@ -36,7 +38,7 @@ class VolumeControl {
         self.initialVolume = 0.0;
         self.interval = 30;
         self.delta = 0.0;
-        self.fadeLength = 1800.0;
+        self.fadeLength = DEFAULT_FADELENGTH;
     }
     
     /**
