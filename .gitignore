@@ -1,0 +1,17 @@
+build/
+DerivedData/
+xcuserdata/
+
+*.dSYM
+*.dSYM.zip
+*.hmap
+*.ipa
+*.mode1v3
+*.moved-aside
+*.pbxuser
+*.perspectivev3
+*.xcuserstate
+
+!default.mode1v3
+!default.pbxuser
+!default.perspectivev3
