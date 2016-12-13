@@ -52,8 +52,6 @@ class VolumeControl {
         
         if (newVolume > 0) {
             NSSound.setSystemVolume(newVolume);
-            
-            self.showNotification(message: "Volume decreased by \(delta) to \(newVolume)")
         } else {
             NSSound.setSystemVolume(0.0);
             
@@ -72,7 +70,7 @@ class VolumeControl {
     */
     func showNotification(message:String) -> Void {
         let notification = NSUserNotification()
-        notification.title = "Volume changed"
+        notification.title = "Message from faderbar"
         notification.informativeText = message
         notification.soundName = nil
         
@@ -93,6 +91,8 @@ class VolumeControl {
         self.delta = self.initialVolume / (self.fadeLength / Double(self.interval));
         
         self.timer = Timer.scheduledTimer(timeInterval: 30, target: self, selector: #selector(self.changeVolume), userInfo: nil, repeats: true);
+        
+        self.showNotification(message: "Fade out of \(UInt(self.fadeLength)) seconds started")
     }
     
     /**
@@ -104,7 +104,5 @@ class VolumeControl {
         self.timer.invalidate();
         
         NSSound.setSystemVolume(Float(initialVolume));
-        
-        self.showNotification(message: "Timer cancelled, volume reset")
     }
 }
