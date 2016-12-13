@@ -23,8 +23,14 @@ class StatusMenuController: NSObject, PreferencesWindowDelegate {
     /// Volume controller
     let volumeControl = VolumeControl()
     
-    /// The preferences windwo
+    /// The preferences window
     var preferencesWindow: PreferencesWindow!
+    
+    /// Black and white icon
+    let bwIcon = #imageLiteral(resourceName: "bwStatusIcon")
+    
+    /// Colour icon
+    let colourIcon = #imageLiteral(resourceName: "statusIcon")
     
     /**
      
@@ -34,9 +40,9 @@ class StatusMenuController: NSObject, PreferencesWindowDelegate {
     override func awakeFromNib() {
         statusItem.menu = statusMenu
         
-        let icon = #imageLiteral(resourceName: "statusIcon")
-        icon.isTemplate = false
-        statusItem.image = icon
+        colourIcon.isTemplate = false
+        bwIcon.isTemplate = false
+        statusItem.image = bwIcon
         
         preferencesWindow = PreferencesWindow()
         preferencesWindow.delegate = self
@@ -49,10 +55,14 @@ class StatusMenuController: NSObject, PreferencesWindowDelegate {
     */
     @IBAction func startClicked(_ sender: Any) {
         if (actionButton.title == "Start") {
+            statusItem.image = colourIcon
+            
             actionButton.setTitleWithMnemonic("Stop")
             
             volumeControl.startShrinkage()
         } else {
+            statusItem.image = bwIcon
+            
             actionButton.setTitleWithMnemonic("Start")
             
             volumeControl.cancelShrinkage()
