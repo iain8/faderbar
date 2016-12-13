@@ -50,7 +50,7 @@ class StatusMenuController: NSObject, PreferencesWindowDelegate {
     func preferencesDidUpdate() {
         let fadeTime = UserDefaults.standard.string(forKey: "fadeTime");
         
-        let newFadeTime = NumberFormatter().number(from: fadeTime!)?.doubleValue
+        let newFadeTime = Double(fadeTime!)
         
         // WHY IS THIS FAIL
         volumeControl.fadeLength = newFadeTime! * 60.0
