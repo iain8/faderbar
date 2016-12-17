@@ -9,6 +9,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="PreferencesWindow" customModule="FaderBar" customModuleProvider="target">
             <connections>
                 <outlet property="fadeTimeField" destination="7ea-bD-0T0" id="X0m-Oh-NLl"/>
+                <outlet property="fadeTimeSlider" destination="lYb-vs-Lpd" id="caD-Ed-DfM"/>
                 <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>
@@ -52,6 +53,14 @@
                             <action selector="saveButtonClicked:" target="-2" id="c6Y-5q-JaX"/>
                         </connections>
                     </button>
+                    <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lYb-vs-Lpd">
+                        <rect key="frame" x="18" y="53" width="232" height="25"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <sliderCell key="cell" continuous="YES" state="on" alignment="left" minValue="300" maxValue="3600" doubleValue="300" tickMarkPosition="below" numberOfTickMarks="7" sliderType="linear" id="IlL-Ss-j52"/>
+                        <connections>
+                            <action selector="fadeTimeChanged:" target="-2" id="QLF-lc-utc"/>
+                        </connections>
+                    </slider>
                 </subviews>
             </view>
             <connections>
