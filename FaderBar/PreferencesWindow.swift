@@ -41,12 +41,32 @@ class PreferencesWindow: NSWindowController, NSWindowDelegate {
     
     /**
      
+        "Done" button action
+     
+    */
+    @IBAction func saveButtonClicked(_ sender: Any) {
+        self.updatePreferences()
+        
+        self.window?.close()
+    }
+    
+    /**
+     
         On close preferences, update fade time
      
         - Parameter notification: Some kind of notification
      
     */
     func windowWillClose(_ notification: Notification) {
+        self.updatePreferences()
+    }
+    
+    /**
+     
+        Update preferences
+     
+    */
+    func updatePreferences() {
         let defaults = UserDefaults.standard
         
         defaults.setValue(fadeTimeField.stringValue, forKey: "fadeTime")
