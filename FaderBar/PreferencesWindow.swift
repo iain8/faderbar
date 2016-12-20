@@ -27,6 +27,9 @@ class PreferencesWindow: NSWindowController, NSWindowDelegate {
         return "PreferencesWindow"
     }
     
+    /// Time intervals for selector
+    let timeIntervals: [Double] = [5.0, 10.0, 15.0, 30.0, 60.0, 120.0, 240.0, 360.0];
+    
     /**
         
         Populate preferences fields when window is opened
@@ -39,12 +42,12 @@ class PreferencesWindow: NSWindowController, NSWindowDelegate {
         self.window?.makeKeyAndOrderFront(nil)
         NSApp.activate(ignoringOtherApps: true)
         
-        fadeTimeField.stringValue = UserDefaults.standard.string(forKey: "fadeTime") ?? String(DEFAULT_FADELENGTH / 60.0)
+        fadeTimeField.doubleValue = UserDefaults.standard.double(forKey: "fadeTime")
     }
     
     
     @IBAction func fadeTimeChanged(_ sender: Any) {
-        fadeTimeField.doubleValue = fadeTimeSlider.doubleValue;
+        fadeTimeField.doubleValue = timeIntervals[fadeTimeSlider.integerValue];
     }
     
     /**
@@ -77,8 +80,7 @@ class PreferencesWindow: NSWindowController, NSWindowDelegate {
     func updatePreferences() {
         let defaults = UserDefaults.standard
         
-        // TODO: doubleValue
-        defaults.setValue(fadeTimeField.stringValue, forKey: "fadeTime")
+        defaults.setValue(fadeTimeField.doubleValue, forKey: "fadeTime")
         
         delegate?.preferencesDidUpdate()
     }
