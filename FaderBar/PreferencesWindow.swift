@@ -16,6 +16,9 @@ class PreferencesWindow: NSWindowController, NSWindowDelegate {
     /// The fade out time field
     @IBOutlet weak var fadeTimeField: NSTextField!
     
+    // The fade out time slider
+    @IBOutlet weak var fadeTimeSlider: NSSlider!
+    
     /// Window delegate
     var delegate: PreferencesWindowDelegate?
     
@@ -23,6 +26,9 @@ class PreferencesWindow: NSWindowController, NSWindowDelegate {
     override var windowNibName: String! {
         return "PreferencesWindow"
     }
+    
+    /// Time intervals for selector
+    let timeIntervals: [Double] = [5.0, 10.0, 15.0, 30.0, 60.0, 120.0, 240.0, 360.0];
     
     /**
         
@@ -36,7 +42,16 @@ class PreferencesWindow: NSWindowController, NSWindowDelegate {
         self.window?.makeKeyAndOrderFront(nil)
         NSApp.activate(ignoringOtherApps: true)
         
-        fadeTimeField.stringValue = UserDefaults.standard.string(forKey: "fadeTime") ?? String(DEFAULT_FADELENGTH / 60.0)
+        fadeTimeField.doubleValue = UserDefaults.standard.double(forKey: "fadeTime")
+    }
+    
+    /**
+     
+        Fade time slider action
+     
+    */
+    @IBAction func fadeTimeChanged(_ sender: Any) {
+        fadeTimeField.doubleValue = timeIntervals[fadeTimeSlider.integerValue];
     }
     
     /**
@@ -69,7 +84,7 @@ class PreferencesWindow: NSWindowController, NSWindowDelegate {
     func updatePreferences() {
         let defaults = UserDefaults.standard
         
-        defaults.setValue(fadeTimeField.stringValue, forKey: "fadeTime")
+        defaults.setValue(fadeTimeField.doubleValue, forKey: "fadeTime")
         
         delegate?.preferencesDidUpdate()
     }
