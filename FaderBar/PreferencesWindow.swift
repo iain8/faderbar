@@ -45,7 +45,11 @@ class PreferencesWindow: NSWindowController, NSWindowDelegate {
         fadeTimeField.doubleValue = UserDefaults.standard.double(forKey: "fadeTime")
     }
     
-    
+    /**
+     
+        Fade time slider action
+     
+    */
     @IBAction func fadeTimeChanged(_ sender: Any) {
         fadeTimeField.doubleValue = timeIntervals[fadeTimeSlider.integerValue];
     }

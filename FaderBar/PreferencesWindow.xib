@@ -45,7 +45,7 @@
                     <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lYb-vs-Lpd">
                         <rect key="frame" x="18" y="90" width="314" height="27"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="7" tickMarkPosition="below" numberOfTickMarks="8" allowsTickMarkValuesOnly="YES" sliderType="linear" id="IlL-Ss-j52"/>
+                        <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="7" doubleValue="3" tickMarkPosition="below" numberOfTickMarks="8" allowsTickMarkValuesOnly="YES" sliderType="linear" id="IlL-Ss-j52"/>
                         <connections>
                             <action selector="fadeTimeChanged:" target="-2" id="QLF-lc-utc"/>
                         </connections>

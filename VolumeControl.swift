@@ -8,7 +8,7 @@
 
 import Foundation
 
-let DEFAULT_FADELENGTH = 1800.00
+let DEFAULT_FADELENGTH = 30.0
 
 class VolumeControl {
     /// Time (in seconds) between volume changes
@@ -23,7 +23,7 @@ class VolumeControl {
     /// Amount to change volume;
     var delta: Double;
     
-    /// Length of fade (in seconds)
+    /// Length of fade (in minutes)
     var fadeLength: Double;
     
     /**
@@ -88,11 +88,11 @@ class VolumeControl {
         self.initialVolume = Double(NSSound.systemVolume());
         
         // calculate change per interval from number of times timer is called
-        self.delta = self.initialVolume / (self.fadeLength / Double(self.interval));
+        self.delta = self.initialVolume / ((self.fadeLength * 60) / Double(self.interval));
         
         self.timer = Timer.scheduledTimer(timeInterval: 30, target: self, selector: #selector(self.changeVolume), userInfo: nil, repeats: true);
         
-        self.showNotification(message: "Fade out of \(UInt(self.fadeLength)) seconds started")
+        self.showNotification(message: "Fade out of \(UInt(self.fadeLength)) minutes started")
     }
     
     /**
