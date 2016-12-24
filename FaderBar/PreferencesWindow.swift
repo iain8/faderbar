@@ -16,8 +16,11 @@ class PreferencesWindow: NSWindowController, NSWindowDelegate {
     /// The fade out time field
     @IBOutlet weak var fadeTimeField: NSTextField!
     
-    // The fade out time slider
+    /// The fade out time slider
     @IBOutlet weak var fadeTimeSlider: NSSlider!
+    
+    /// Checkbox for post-fade sleep
+    @IBOutlet weak var sleepCheckbox: NSButton!
     
     /// Window delegate
     var delegate: PreferencesWindowDelegate?
@@ -82,7 +85,8 @@ class PreferencesWindow: NSWindowController, NSWindowDelegate {
      
     */
     func updatePreferences() {
-        UserDefaults.standard.setValue(fadeTimeField.doubleValue, forKey: "fadeTime")
+        UserDefaults.standard.setValue(self.fadeTimeField.doubleValue, forKey: "fadeTime")
+        UserDefaults.standard.setValue(self.sleepCheckbox.state, forKey: "sleepAfterwards")
         
         delegate?.preferencesDidUpdate()
     }

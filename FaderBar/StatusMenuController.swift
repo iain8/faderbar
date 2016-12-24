@@ -138,6 +138,10 @@ class StatusMenuController: NSObject, PreferencesWindowDelegate {
             actionButton.setTitleWithMnemonic("Reset")
             
             self.timer.invalidate()
+            
+            if (UserDefaults.standard.bool(forKey: "sleepAfterwards")) {
+                SystemTask.goToSleep()
+            }
         }
     }
 }
