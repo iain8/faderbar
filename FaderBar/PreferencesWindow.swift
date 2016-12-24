@@ -49,7 +49,7 @@ class PreferencesWindow: NSWindowController, NSWindowDelegate {
     }
 
     func windowDidBecomeMain(_ notification: Notification) {
-        if (UserDefaults.standard.bool(forKey: "prefsDisabled")) {
+        if UserDefaults.standard.bool(forKey: "prefsDisabled") {
             self.fadeTimeField.isEnabled = false
             self.fadeTimeSlider.isEnabled = false
         } else {
