@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// Default fade length in minutes
 let DEFAULT_FADELENGTH = 30.0
 
 class VolumeControl {
@@ -34,11 +35,13 @@ class VolumeControl {
      
     */
     init() {
-        self.timer = Timer();
-        self.initialVolume = 0.0;
-        self.interval = 30;
-        self.delta = 0.0;
-        self.fadeLength = DEFAULT_FADELENGTH;
+        self.timer = Timer()
+        self.initialVolume = 0.0
+        self.interval = 30
+        self.delta = 0.0
+        self.fadeLength = DEFAULT_FADELENGTH
+        
+        UserDefaults.standard.setValue(self.fadeLength, forKey: "fadeTime")
     }
     
     /**
@@ -47,17 +50,17 @@ class VolumeControl {
      
     */
     @objc func changeVolume() {
-        let currentVolume = Double(NSSound.systemVolume());
-        let newVolume = Float(currentVolume - delta);
+        let currentVolume = Double(NSSound.systemVolume())
+        let newVolume = Float(currentVolume - delta)
         
         if (newVolume > 0) {
-            NSSound.setSystemVolume(newVolume);
+            NSSound.setSystemVolume(newVolume)
         } else {
-            NSSound.setSystemVolume(0.0);
+            NSSound.setSystemVolume(0.0)
             
             self.showNotification(message: "Sound muted")
             
-            self.timer.invalidate();
+            self.timer.invalidate()
         }
     }
     

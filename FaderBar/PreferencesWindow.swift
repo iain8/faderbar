@@ -82,9 +82,7 @@ class PreferencesWindow: NSWindowController, NSWindowDelegate {
      
     */
     func updatePreferences() {
-        let defaults = UserDefaults.standard
-        
-        defaults.setValue(fadeTimeField.doubleValue, forKey: "fadeTime")
+        UserDefaults.standard.setValue(fadeTimeField.doubleValue, forKey: "fadeTime")
         
         delegate?.preferencesDidUpdate()
     }
