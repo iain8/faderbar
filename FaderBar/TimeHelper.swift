@@ -12,11 +12,13 @@ import Foundation
 class TimeHelper {
 
     /**
+
         Format a time interval as a readable string
 
         - Parameter interal: Time interval in seconds
 
         - Returns: time formatted as "hh:mm"
+
     */
     static func formatInterval(interval: Double) -> String {
         let hours = self.addLeadingZero(numeral: UInt(interval) / 3600)
@@ -26,11 +28,13 @@ class TimeHelper {
     }
 
     /**
+
         Add leading zeros to numbers where necessary
 
         - Parameter numeral: Number in question
 
         - Returns: string of two characters
+
     */
     static func addLeadingZero(numeral: UInt) -> String {
         return numeral < 10 ? "0\(numeral)" : "\(numeral)"

@@ -5,7 +5,7 @@
 //  Created by iain on 12/12/16.
 //  Copyright © 2016 iain. All rights reserved.
 //
-protocol PreferencesWindowDelegate {
+protocol PreferencesWindowDelegate: class {
     func preferencesDidUpdate()
 }
 
