@@ -54,6 +54,8 @@ class StatusMenuController: NSObject, PreferencesWindowDelegate {
 
         preferencesWindow = PreferencesWindow()
         preferencesWindow.delegate = self
+
+        UserDefaults.standard.setValue(false, forKey: "prefsDisabled")
     }
 
     /**
@@ -80,6 +82,8 @@ class StatusMenuController: NSObject, PreferencesWindowDelegate {
                 userInfo: nil,
                 repeats: true
             )
+
+            UserDefaults.standard.setValue(true, forKey: "prefsDisabled")
         } else {
             volumeControl.cancelShrinkage()
 
@@ -92,6 +96,8 @@ class StatusMenuController: NSObject, PreferencesWindowDelegate {
             let fadeTime = UserDefaults.standard.double(forKey: "fadeTime")
 
             timeIndicator.setTitleWithMnemonic("Fade time: \(TimeHelper.formatInterval(interval: fadeTime * 60))")
+
+            UserDefaults.standard.setValue(false, forKey: "prefsDisabled")
         }
     }
 
