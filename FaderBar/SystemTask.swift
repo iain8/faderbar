@@ -16,7 +16,7 @@ class SystemTask {
     */
     static func goToSleep() {
         let task = Process()
-        
+
         task.launchPath = "/usr/bin/pmset"
         task.arguments = ["sleepnow"]
         task.launch()
