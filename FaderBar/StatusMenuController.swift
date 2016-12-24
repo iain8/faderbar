@@ -17,6 +17,9 @@ class StatusMenuController: NSObject, PreferencesWindowDelegate {
     /// The start/stop button
     @IBOutlet weak var actionButton: NSMenuItem!
     
+    /// Time indicator in menu
+    @IBOutlet weak var timeIndicator: NSMenuItem!
+    
     /// Status bar item
     let statusItem = NSStatusBar.system().statusItem(withLength: NSVariableStatusItemLength)
     
@@ -31,6 +34,11 @@ class StatusMenuController: NSObject, PreferencesWindowDelegate {
     
     /// Colour icon
     let colourIcon = #imageLiteral(resourceName: "statusIcon")
+    
+    /// Timer for menu item
+    var timer: Timer = Timer()
+    
+    var endDate: Date = Date()
     
     /**
      
@@ -60,12 +68,26 @@ class StatusMenuController: NSObject, PreferencesWindowDelegate {
             actionButton.setTitleWithMnemonic("Stop")
             
             volumeControl.startShrinkage()
+            
+            self.endDate = Date().addingTimeInterval(volumeControl.fadeLength * 60.0)
+            
+            self.setTimeDisplay()
+            
+            self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.setTimeDisplay), userInfo: nil, repeats: true);
+            
         } else {
+            volumeControl.cancelShrinkage()
+            
+            self.timer.invalidate()
+            
             statusItem.image = bwIcon
             
             actionButton.setTitleWithMnemonic("Start")
             
-            volumeControl.cancelShrinkage()
+            let fadeTime = UserDefaults.standard.double(forKey: "fadeTime")
+            
+            timeIndicator.setTitleWithMnemonic("Fade time: \(TimeHelper.formatInterval(interval: fadeTime * 60))")
+            
         }
     }
     
@@ -93,8 +115,29 @@ class StatusMenuController: NSObject, PreferencesWindowDelegate {
      
     */
     func preferencesDidUpdate() {
-        let fadeTime = UserDefaults.standard.double(forKey: "fadeTime");
+        let fadeTime = UserDefaults.standard.double(forKey: "fadeTime")
         
-        volumeControl.fadeLength = fadeTime * 60.0
+        self.volumeControl.fadeLength = fadeTime
+                
+        self.timeIndicator.setTitleWithMnemonic("Fade time: \(TimeHelper.formatInterval(interval: fadeTime * 60))")
+    }
+    
+    /**
+     
+        Set time display in menu
+     
+    */
+    func setTimeDisplay() {
+        let difference = Date().timeIntervalSince(self.endDate) * -1.0
+        
+        if (difference > 0) {
+            self.timeIndicator.setTitleWithMnemonic("Fade left: \(TimeHelper.formatInterval(interval: difference))")
+        } else {
+            self.timeIndicator.setTitleWithMnemonic("Muted!")
+            
+            actionButton.setTitleWithMnemonic("Reset")
+            
+            self.timer.invalidate()
+        }
     }
 }
