@@ -10,27 +10,31 @@ import XCTest
 @testable import FaderBar
 
 class FaderBarTests: XCTestCase {
-    
+
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
     }
-    
+
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
-    
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+
+    /**
+
+        Test adding leading zeros to numbers
+
+    */
+    func testLeadingZeros() {
+        let lessThanTen = UInt(5)
+
+        var padded = TimeHelper.addLeadingZero(numeral: lessThanTen)
+
+        XCTAssertEqual(padded, "05")
+
+        let moreThanTen = UInt(14)
+
+        padded = TimeHelper.addLeadingZero(numeral: moreThanTen)
+
+        XCTAssertEqual(padded, "14")
     }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-    
 }

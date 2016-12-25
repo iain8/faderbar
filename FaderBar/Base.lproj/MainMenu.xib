@@ -18,10 +18,14 @@
             <connections>
                 <outlet property="actionButton" destination="rBD-QR-Km0" id="KnQ-y9-i1B"/>
                 <outlet property="statusMenu" destination="6Jm-BO-0dg" id="BVd-FJ-5z8"/>
+                <outlet property="timeIndicator" destination="9uM-MA-mKj" id="UJt-vv-9Nd"/>
             </connections>
         </customObject>
         <menu id="6Jm-BO-0dg">
             <items>
+                <menuItem title="Fade time: 30m" enabled="NO" id="9uM-MA-mKj">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
                 <menuItem title="Start" id="rBD-QR-Km0">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
@@ -43,7 +47,7 @@
                     </connections>
                 </menuItem>
             </items>
-            <point key="canvasLocation" x="3974.5" y="46.5"/>
+            <point key="canvasLocation" x="3974" y="36.5"/>
         </menu>
     </objects>
 </document>
