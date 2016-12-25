@@ -127,7 +127,7 @@ class StatusMenuController: NSObject, PreferencesWindowDelegate {
     func preferencesDidUpdate() {
         let fadeTime = UserDefaults.standard.double(forKey: "fadeTime")
 
-        self.volumeControl.fadeLength = fadeTime
+        self.volumeControl.fadeLength = fadeTime * 60.0
 
         self.timeIndicator.setTitleWithMnemonic("Fade time: \(TimeHelper.formatInterval(interval: fadeTime * 60))")
     }
