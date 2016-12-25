@@ -9,12 +9,16 @@ A tiny app to automate a system volume fade out. Example uses:
 ## Usage
 
 1. Start app
-2. Set your fade out time in the `Preferences` menu
-3. Hit `start`
+2. Hit `Start`
+3. Volume will fade out (you can check the remaining time in the menu)
 
-To cancel you can click `stop` and the volume will be reset to the original value.
+To cancel you can click `Stop` and the volume will be reset to the original value.
 
-That's it!
+## Preferences
+
+Set the time using the slider or override with the text field.
+
+If `Go to sleep after fade` is selected your mac will hit the hay as soon as the fade ends.
 
 #### Credits
 

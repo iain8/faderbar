@@ -48,6 +48,16 @@ class PreferencesWindow: NSWindowController, NSWindowDelegate {
         fadeTimeField.doubleValue = UserDefaults.standard.double(forKey: "fadeTime")
     }
 
+    func windowDidBecomeMain(_ notification: Notification) {
+        if UserDefaults.standard.bool(forKey: "prefsDisabled") {
+            self.fadeTimeField.isEnabled = false
+            self.fadeTimeSlider.isEnabled = false
+        } else {
+            self.fadeTimeField.isEnabled = true
+            self.fadeTimeSlider.isEnabled = true
+        }
+    }
+
     /**
      
         Fade time slider action

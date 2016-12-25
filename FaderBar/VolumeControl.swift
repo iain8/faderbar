@@ -8,14 +8,12 @@
 
 import Foundation
 
-/// Default fade length in minutes
+/// Default fade length in seconds
 struct Defaults {
-    static let fadeLength = 30.0
+    static let fadeLength = 1800.0
 }
 
 class VolumeControl {
-    /// Time (in seconds) between volume changes
-    let interval: UInt
 
     /// Timer used for scheduling
     var timer: Timer
@@ -26,7 +24,7 @@ class VolumeControl {
     /// Amount to change volume;
     var delta: Double
 
-    /// Length of fade (in minutes)
+    /// Length of fade (in seconds)
     var fadeLength: Double
 
     /**
@@ -39,11 +37,10 @@ class VolumeControl {
     init() {
         self.timer = Timer()
         self.initialVolume = 0.0
-        self.interval = 30
         self.delta = 0.0
         self.fadeLength = Defaults.fadeLength
 
-        UserDefaults.standard.setValue(self.fadeLength, forKey: "fadeTime")
+        UserDefaults.standard.setValue(self.fadeLength / 60.0, forKey: "fadeTime")
     }
 
     /**
@@ -54,6 +51,8 @@ class VolumeControl {
     @objc func changeVolume() {
         let currentVolume = Double(NSSound.systemVolume())
         let newVolume = Float(currentVolume - delta)
+
+        print("volume change:", currentVolume, newVolume)
 
         if newVolume > 0 {
             NSSound.setSystemVolume(newVolume)
@@ -92,11 +91,13 @@ class VolumeControl {
 
         self.initialVolume = Double(NSSound.systemVolume())
 
+        let interval = self.fadeLength / 60.0
+
         // calculate change per interval from number of times timer is called
-        self.delta = self.initialVolume / ((self.fadeLength * 60) / Double(self.interval))
+        self.delta = self.initialVolume / (self.fadeLength / interval)
 
         self.timer = Timer.scheduledTimer(
-            timeInterval: 30,
+            timeInterval: interval,
             target: self,
             selector: #selector(self.changeVolume),
             userInfo: nil,
