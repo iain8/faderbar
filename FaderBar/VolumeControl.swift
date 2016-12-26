@@ -39,8 +39,6 @@ class VolumeControl {
         self.initialVolume = 0.0
         self.delta = 0.0
         self.fadeLength = Defaults.fadeLength
-
-        UserDefaults.standard.setValue(self.fadeLength / 60.0, forKey: "fadeTime")
     }
 
     /**

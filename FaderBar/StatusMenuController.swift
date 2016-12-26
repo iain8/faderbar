@@ -42,7 +42,7 @@ class StatusMenuController: NSObject, PreferencesWindowDelegate {
 
     /**
 
-        Set up menu properties
+        Set up menu properties and defaults
 
     */
     override func awakeFromNib() {
@@ -56,6 +56,8 @@ class StatusMenuController: NSObject, PreferencesWindowDelegate {
         preferencesWindow.delegate = self
 
         UserDefaults.standard.setValue(false, forKey: "prefsDisabled")
+
+        UserDefaults.standard.setValue(volumeControl.fadeLength / 60.0, forKey: "fadeTime")
     }
 
     /**
@@ -71,7 +73,7 @@ class StatusMenuController: NSObject, PreferencesWindowDelegate {
 
             volumeControl.startShrinkage()
 
-            self.endDate = Date().addingTimeInterval(volumeControl.fadeLength * 60.0)
+            self.endDate = Date().addingTimeInterval(volumeControl.fadeLength)
 
             self.setTimeDisplay()
 

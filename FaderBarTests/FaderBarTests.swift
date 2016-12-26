@@ -37,4 +37,18 @@ class FaderBarTests: XCTestCase {
 
         XCTAssertEqual(padded, "14")
     }
+
+    func testFormatTime() {
+        var formatted = TimeHelper.formatInterval(interval: 3600)
+
+        XCTAssertEqual(formatted, "01:00")
+
+        formatted = TimeHelper.formatInterval(interval: 300)
+
+        XCTAssertEqual(formatted, "00:05")
+
+        formatted = TimeHelper.formatInterval(interval: 0)
+
+        XCTAssertEqual(formatted, "00:00")
+    }
 }
