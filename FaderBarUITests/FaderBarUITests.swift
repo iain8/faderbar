@@ -20,5 +20,7 @@ class FaderBarUITests: XCTestCase {
 
     override func tearDown() {
         super.tearDown()
+
+        XCUIApplication().terminate()
     }
 }
