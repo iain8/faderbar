@@ -9,7 +9,7 @@
     {
       "size" : "16x16",
       "idiom" : "mac",
-      "filename" : "pug32-1.png",
+      "filename" : "pug32.png",
       "scale" : "2x"
     },
     {
@@ -33,7 +33,7 @@
     {
       "size" : "128x128",
       "idiom" : "mac",
-      "filename" : "pug256-1.png",
+      "filename" : "pug256.png",
       "scale" : "2x"
     },
     {
@@ -45,7 +45,7 @@
     {
       "size" : "256x256",
       "idiom" : "mac",
-      "filename" : "ItunesArtwork-1.png",
+      "filename" : "ItunesArtwork.png",
       "scale" : "2x"
     },
     {
